@@ -1,0 +1,44 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% bootstrap_css %}
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Telas Prontas!!</h1>
+
+<div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">nickname</th>
+                        <th scope="col">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for l in link %}
+                        <tr>
+                            <td>{{ l.id }}</td>
+                            <td>{{ l.nome }}</td>
+                            <td>{{ l.nickname }}</td>
+                            <td>
+                                <a class="btn btn-warning" href="#">Editar</a>
+                                <a class="btn btn-danger" href="#">Deletar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-primary" href="{% url 'criando_tela' %}">Criar Novo</a>
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
